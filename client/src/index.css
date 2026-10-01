@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { margin: 0; min-width: 320px; }
+button, input, select, textarea { font: inherit; }
+
+.application-page { min-height: 100vh; background: #f3f7f5; color: #183029; }
+.career-container { width: min(1380px, calc(100% - 64px)); margin-inline: auto; }
+.career-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 88% 110%, #1b7055 0%, #0a4232 42%, #083c2e 70%); color: white; }
+.career-hero::before, .career-hero::after { content: ''; position: absolute; width: 550px; height: 550px; border-radius: 50%; border: 1px solid #ffffff06; right: -200px; top: 25px; pointer-events: none; }
+.career-hero::after { width: 720px; height: 720px; right: -285px; top: -60px; border-width: 80px; background: #ffffff02; }
+.career-brand-row { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 32px 0; border-bottom: 1px solid #ffffff1a; }
+.career-brand { display: flex; align-items: center; gap: 24px; }
+.career-logo { width: 75px; height: 75px; object-fit: contain; }
+.career-bank-name { margin: 0; font-size: 21px; font-weight: 750; letter-spacing: -.4px; }
+.career-department { margin: 7px 0 0; color: #c5e0d6; font-size: 13px; text-transform: uppercase; letter-spacing: 1.7px; }
+.career-badge { display: inline-flex; align-items: center; gap: 10px; padding: 13px 18px; border: 1px solid #ffffff26; border-radius: 30px; font-size: 14px; white-space: nowrap; }
+.career-intro { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 350px; gap: 60px; align-items: center; padding: 51px 0 90px; }
+.career-eyebrow { margin: 0 0 23px; color: #f3c56b; text-transform: uppercase; font-size: 13px; letter-spacing: 3.2px; font-weight: 750; }
+.career-copy h1 { margin: 0; font-size: clamp(40px, 4vw, 64px); line-height: 1.14; letter-spacing: -2.3px; font-weight: 750; }
+.career-description { margin: 25px 0 0; color: #e0ece6; font-size: 17px; line-height: 1.9; }
+.career-guidance { padding-left: 35px; border-left: 1px solid #ffffff20; }
+.career-document-icon { display: grid; place-items: center; width: 57px; height: 57px; color: #edc36c; background: #ffffff07; border: 1px solid #ffffff20; border-radius: 17px; margin-bottom: 21px; }
+.career-guidance h2 { font-size: 19px; font-weight: 650; margin: 0 0 12px; }
+.career-guidance p { font-size: 17px; line-height: 1.8; margin: 0; color: #e7f1ec; }
+.career-guidance > span { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-top: 24px; }
+.career-guidance > span svg { color: #c3edda; }
+.application-main { position: relative; margin-top: -37px; padding-bottom: 50px; }
+.application-progress { border: 1px solid #dfe8e2; border-radius: 23px; background: white; padding: 30px; box-shadow: 0 18px 45px #153d2810; }
+.progress-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.progress-eyebrow { margin: 0 0 5px; text-transform: uppercase; color: #698092; font-size: 14px; letter-spacing: 1.5px; }
+.progress-current { margin: 0; display: flex; gap: 15px; font-size: 16px; color: #718094; }
+.progress-current strong { color: #152d40; font-weight: 600; }
+.progress-percent { background: #ecf6f0; color: #00735a; padding: 9px 13px; border-radius: 11px; font-size: 13px; white-space: nowrap; }
+.progress-track { height: 6px; background: #edf2ef; border-radius: 10px; overflow: hidden; margin-top: 23px; }
+.progress-track > div { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #12815e, #7daa6d); transition: width .3s ease; }
+.application-steps { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; margin-top: 25px; }
+.application-step { display: flex; align-items: center; flex-direction: column; gap: 11px; padding: 15px 4px; border: 1px solid transparent; border-radius: 14px; background: transparent; color: #62756e; cursor: pointer; }
+.application-step:disabled { cursor: default; }
+.application-step.is-current { background: #eff7f1; border-color: #cce6d4; color: #006d52; }
+.application-step.is-complete { color: #00785a; }
+.step-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 14px; background: #f1f5f3; }
+.is-current .step-icon { background: #087b59; color: white; box-shadow: 0 4px 10px #087b5920; }
+.step-name { font-size: 12px; text-align: center; }
+.is-current .step-name { font-weight: 700; }
+.step-number { font-size: 10px; color: #8a9b9f; }
+.application-caption { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 12px; color: #768d93; padding: 33px 2px 15px; }
+.application-caption b { color: #ef4444; }
+.application-main > section:not(.application-progress) { border-radius: 21px; border-color: #dfe8e2; box-shadow: 0 8px 24px #153d2804; }
+button:focus-visible { outline: 3px solid #65bfa0; outline-offset: 3px; }
+@media (min-width: 1600px) { .career-intro { padding-bottom: 90px; } }
+@media (max-width: 1000px) { .career-intro { grid-template-columns: 1fr 280px; gap: 30px; } .career-desktop-break { display: none; } .career-guidance { padding-left: 25px; } .application-progress { padding: 24px; } .application-steps { gap: 3px; } .step-name { font-size: 11px; } }
+@media (max-width: 700px) { .career-container { width: calc(100% - 32px); } .career-brand-row { padding: 23px 0; } .career-brand { gap: 12px; } .career-logo { width: 57px; height: 57px; } .career-bank-name { font-size: 16px; letter-spacing: -.2px; } .career-department { font-size: 9px; letter-spacing: 1px; } .career-badge { display: none; } .career-intro { grid-template-columns: 1fr; padding: 35px 0 72px; gap: 30px; } .career-copy h1 { font-size: 43px; letter-spacing: -1.5px; } .career-eyebrow { font-size: 10px; letter-spacing: 2.5px; margin-bottom: 18px; } .career-description { font-size: 15px; margin-top: 20px; } .career-guidance { padding-left: 18px; } .career-document-icon { display: none; } .career-guidance h2 { font-size: 17px; margin-bottom: 7px; } .career-guidance p { font-size: 14px; } .career-guidance > span { margin-top: 12px; font-size: 12px; } .application-progress { padding: 21px 16px; border-radius: 19px; } .progress-eyebrow { font-size: 11px; } .progress-current { font-size: 13px; gap: 9px; } .progress-percent { font-size: 11px; padding: 8px 10px; } .application-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 18px; } .application-step { gap: 7px; padding: 10px 2px; } .step-icon { width: 35px; height: 35px; border-radius: 11px; } .step-icon svg { width: 19px; } .step-number { font-size: 9px; } .application-caption { font-size: 10px; padding-top: 25px; gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Refined form controls and mobile navigation. */
+.application-page { background: linear-gradient(180deg, #f3f7f5, #f8faf9); }
+.career-logo { flex-shrink: 0; filter: drop-shadow(0 4px 12px #00291a25); }
+.career-copy h1 { text-wrap: balance; }
+.application-step { transition: background .18s ease, border-color .18s ease; }
+.application-step.is-complete:hover { background: #f0f7f3; border-color: #dcebe2; }
+.form-section { position: relative; overflow: hidden; }
+.form-section::before { content: ''; position: absolute; top: 0; left: 28px; width: 44px; height: 3px; background: #138361; border-radius: 0 0 4px 4px; }
+.form-section-title { scroll-margin-top: 28px; letter-spacing: -.45px; line-height: 1.4; }
+.form-section-title:focus { outline: none; }
+.form-section :is(input:not([type=radio]):not([type=checkbox]), select, textarea) { min-width: 0; max-width: 100%; min-height: 50px; background: #fcfdfc; border-color: #d9e3dd; color: #243c31; font-size: 16px; }
+.form-section :is(input, select, textarea):hover { border-color: #abc9b8; }
+.form-section input[readonly] { background: #f0f4f1; color: #6c7f75; }
+.form-section input[type=date] { appearance: none; -webkit-appearance: none; }
+.form-section :is(input[type=radio], input[type=checkbox]) { accent-color: #087b59; width: 18px; height: 18px; flex-shrink: 0; }
+.form-section :is(label, fieldset, .grid > *) { min-width: 0; }
+.form-radio-group > div > label { display: inline-flex; align-items: center; min-height: 48px; line-height: 1.5; }
+.form-radio-group > div > label:focus-within { outline: 3px solid #b8dfcb; outline-offset: 2px; }
+.form-radio-group legend { line-height: 1.6; }
+.application-actions { margin-top: 24px; }
+.application-action-buttons { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.application-action-buttons button { min-height: 50px; }
+.application-action-buttons button:last-child { box-shadow: 0 5px 15px #087b5920; }
+.application-error { margin: 0 0 16px; padding: 13px 16px; border: 1px solid #fecaca; border-radius: 12px; background: #fff5f5; color: #a22b2b; font-size: 14px; line-height: 1.6; }
+.application-footer { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 0 20px 32px; color: #60786b; font-size: 12px; }
+.application-footer img { height: 34px; width: 34px; object-fit: contain; }
+.application-footer small { display: block; margin-top: 3px; font-size: 10px; color: #788b81; }
+@media (min-width: 701px) and (max-width: 1100px) { .career-container { width: calc(100% - 48px); } .career-intro { grid-template-columns: minmax(0, 1fr) 260px; gap: 28px; } .career-copy h1 { font-size: 48px; } .career-description, .career-guidance p { font-size: 15px; } .application-steps { gap: 4px; } .step-name { font-size: 11px; } }
+@media (max-width: 700px) {
+  .career-brand-row { padding: 20px 0; }
+  .career-bank-name { font-size: clamp(14px, 3.8vw, 18px); }
+  .career-logo { width: 50px; height: 50px; }
+  .career-department { line-height: 1.5; letter-spacing: .8px; }
+  .career-intro { padding: 30px 0 65px; gap: 23px; }
+  .career-copy h1 { font-size: clamp(35px, 8.6vw, 49px); line-height: 1.12; }
+  .career-description { line-height: 1.75; margin-top: 18px; }
+  .career-guidance { border: 1px solid #ffffff18; background: #ffffff05; border-radius: 14px; padding: 15px 17px; }
+  .career-guidance h2 { font-size: 15px; }
+  .career-guidance p { font-size: 13px; line-height: 1.65; }
+  .application-main { margin-top: -30px; padding-bottom: 28px; }
+  .application-progress { padding: 20px 16px 14px; box-shadow: 0 10px 28px #153d2810; }
+  .progress-current { flex-wrap: wrap; row-gap: 3px; }
+  .progress-track { margin-top: 17px; }
+  .application-steps { display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: #c4dbcd transparent; padding-bottom: 7px; margin-top: 17px; }
+  .application-step { flex: 0 0 88px; min-height: 100px; padding: 10px 5px; scroll-snap-align: center; }
+  .step-name { font-size: 11px; line-height: 1.4; }
+  .step-number { display: none; }
+  .step-icon { width: 38px; height: 38px; }
+  .application-caption { font-size: 11px; line-height: 1.5; padding-top: 23px; }
+  .application-caption > span:last-child { flex-shrink: 0; }
+  .application-main > .form-section { padding: 23px 18px; border-radius: 18px; }
+  .form-section::before { left: 18px; }
+  .form-section-title { font-size: 19px; scroll-margin-top: 22px; }
+  .form-section .grid { gap: 19px; }
+  .form-radio-group > div { gap: 9px; }
+  .form-radio-group > div > label { flex: 1 1 auto; padding: 12px 14px; font-size: 14px; }
+  .application-actions { position: sticky; bottom: 0; z-index: 5; margin: 20px -16px 0; padding: 13px 16px calc(13px + env(safe-area-inset-bottom)); background: #f8faf9f5; border-top: 1px solid #dce8df; box-shadow: 0 -8px 24px #183d2808; backdrop-filter: blur(12px); }
+  .application-action-buttons { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 12px; }
+  .application-action-buttons button { justify-content: center; padding: 13px 10px; font-size: 14px; white-space: nowrap; }
+  .application-action-buttons button svg { flex-shrink: 0; }
+  .application-error { margin-bottom: 10px; font-size: 13px; padding: 10px 12px; }
+  .application-footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 360px) { .career-container { width: calc(100% - 24px); } .career-brand { gap: 9px; } .career-logo { width: 44px; height: 44px; } .career-department { font-size: 8px; } .career-eyebrow { font-size: 9px; letter-spacing: 2px; } .application-main > .form-section { padding-inline: 15px; } .application-caption { font-size: 10px; } .application-actions { margin-inline: -12px; padding-inline: 12px; } }
